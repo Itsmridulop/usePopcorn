@@ -15,8 +15,8 @@ import Error from './component/Error'
 const KEY = '87c88572'
 
 export default function App() {
-  const [watched, setWatched] = useState([])
-  const [query, setQuery] = useState('');
+  const [watched, setWatched] = useState(() =>JSON.parse(localStorage.getItem('watchedMovie')))
+    const [query, setQuery] = useState('');
   const [movies, setMovies] = useState([])
   const [error, setError] = useState('')
   const [selectedId, setSelectedId] = useState(null)
@@ -46,6 +46,9 @@ export default function App() {
     return () => {controller.abort()}
   }, [query])
 
+  useEffect(() => {
+    localStorage.setItem('watchedMovie', JSON.stringify(watched))
+  },[watched])
  
   const handleSelect = id => {
     if(selectedId === id) setSelectedId(null)

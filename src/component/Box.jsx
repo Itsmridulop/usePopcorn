@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Button from "./Button";
 
-function ShowMovieBox({children}) {
+function Box({children}) {
     const [isOpen, setIsOpen] = useState(true);
     return (
         <div className="box">
@@ -13,4 +13,4 @@ function ShowMovieBox({children}) {
     )
 }
 
-export default ShowMovieBox
+export default Box

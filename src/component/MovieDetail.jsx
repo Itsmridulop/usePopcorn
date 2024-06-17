@@ -49,7 +49,6 @@ function MovieDetail({ selectedId, onSetSelectId, watched, onSetWatched }) {
     const handleClick = () => {
         onSetWatched([...watched, { imdbID: selectedId, userRating, title, poster, runtime, imdbRating }])
         onSetSelectId(null)
-        localStorage.setItem('userRating', userRating)
     }
 
     return (
